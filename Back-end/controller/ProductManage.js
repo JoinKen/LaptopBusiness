@@ -25,7 +25,8 @@ exports.InserProduct = function(req,res,next){
         @_salePrice = '${req.body.salePrice}',
         @_amount ='${req.body.amount}',
         @_dateAdded='${req.body.dateAdded}',
-        @_describe = '${req.body.describe}'
+        @_describe = '${req.body.describe}',
+        @_img = '${req.body.img}' 
        `)
    }).then(result =>{
     res.setHeader('Access-Control-Allow-Origin', '*')
@@ -35,7 +36,8 @@ exports.InserProduct = function(req,res,next){
         salePrice : req.body.salePrice,
         amount : req.body.amount,
         dateAdded : req.body.dateAdded,
-        describe : req.body.describe
+        describe : req.body.describe,
+        img : req.body.img
      }
     });
    sql.close();
@@ -74,7 +76,8 @@ exports.UpdateProduct = function(req,res,next){
         @salePrice = '${req.body.salePrice}',
         @amount ='${req.body.amount}',
         @dateAdded='${req.body.dateAdded}',
-        @describe = '${req.body.describe}'
+        @describe = '${req.body.describe}',
+        @img = '${req.body.img}'
        `).then(result =>{
         res.setHeader('Access-Control-Allow-Origin', '*')
         res.status(200).send({code:'ok',value:{
@@ -84,7 +87,8 @@ exports.UpdateProduct = function(req,res,next){
             salePrice : req.body.salePrice,
             amount : req.body.amount,
             dateAdded : req.body.dateAdded,
-            describe : req.body.describe
+            describe : req.body.describe,
+            img : req.body.img
         }})
         sql.close();
         })

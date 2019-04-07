@@ -1,0 +1,3 @@
+export const SELECT_PRODUCT = "SELECT_PRODUCT";
+export const SELECT_PRODUCT_ERR = "SELECT_PRODUCT_ERR";
+

@@ -19,18 +19,16 @@ class homePage extends Component {
   render() {
     return (
       <div>
-     <TopBar/>
-      <Banner/>
-      <Characteristics/>
-      <RecentView/>
-      <Deals_feature/>
-     
-      <Categories/>
-      <Banner2/>
-      <Arrival/>
-      <BestSeller/>
-      <NewLetter/>
-     
+        <TopBar />
+        <Banner />
+        <Characteristics />
+        <RecentView />
+        <Deals_feature />
+        <Categories />
+        <Banner2 />
+        <Arrival />
+        <BestSeller />
+        <NewLetter />
       </div>
     )
   }

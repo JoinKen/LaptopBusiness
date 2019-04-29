@@ -8,10 +8,15 @@ app.use(express.static('public'));
 
 app.use(bodyParser.json());
 
-app.use(cors({origin: 'http://localhost:3000'}));
+if (process.env.NODE_ENV === "production") {
+    app.use(cors({ origin: ".com" }));
+}
+else {
+    app.use(cors({ origin: "http://localhost:3000" }));
+}
 
 app.use('/', require('./routes/api'));
 
-app.listen(process.env.port || 8080, function(){
-    console.log('success');
+app.listen(process.env.port || 8080, function () {
+    console.log('success port 8080');
 });

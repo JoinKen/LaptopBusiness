@@ -20,6 +20,7 @@ export const getAllProducts = () => {
             console.log(res);
             if (res.data.length <= 0) {
                 dispatch(getError(res.data));
+                console.log("it1006", res.data);
             }
             else {
                 console.log(res.data);

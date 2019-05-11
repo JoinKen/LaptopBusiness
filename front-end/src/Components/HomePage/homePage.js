@@ -19,7 +19,7 @@ import NewLetter from '../newslettesr';
 class homePage extends Component {
   render() {
     return (
-      <div>
+      <div> <RecentViews></RecentViews>
         <Banner />
         <Characteristics />
         {/* <RecentViews /> */}
@@ -33,6 +33,7 @@ class homePage extends Component {
         <Viewed />
         <Brands />
         <NewLetter />
+
       </div>
     )
   }

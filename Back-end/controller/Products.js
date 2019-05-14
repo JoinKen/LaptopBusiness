@@ -6,6 +6,7 @@ exports.list_all_FeatureProducts = function (req, res) {
   Products.getDealFeatureProduct(req.query.statementType, function (err, Products) {
     if (err) res.send(err);
     res.send(Products);
+    console.log(Products);
   });
 };
 

@@ -1,7 +1,7 @@
 import callApi from '../until/callAPI';
 import * as Types from '../Constant/ActionType';
 
-export const getError = (message) => {
+export const getProductError = (message) => {
     return {
         type: Types.SELECT_PRODUCT_ERR,
         message
@@ -11,20 +11,29 @@ export const getProduct = (data) => {
     return {
         type: Types.SELECT_PRODUCT,
         data
-
     }
 }
-export const getAllProducts = () => {
+export const getFeatureProductError = (message) => {
+    return {
+        type: Types.SELECT_FEATURE_PRODUCT_ERR,
+        message
+    }
+}
+export const getFeatureProduct = (data) => {
+    return {
+        type: Types.SELECT_FEATURE_PRODUCT,
+        data
+    }
+}
+export const getFeatureProductAct = () => {
     return (dispatch) => {
-        return callApi('listProduct', 'GET').then(res => {
-            console.log(res);
+        return callApi('listFeatureProduct', 'GET').then(res => {
             if (res.data.length <= 0) {
-                dispatch(getError(res.data));
-                console.log("it1006", res.data);
+                dispatch(getProductError(res.data));
             }
             else {
                 console.log(res.data);
-                dispatch(getProduct(res.data));
+                dispatch(getFeatureProduct(res.data));
             }
         });
     }

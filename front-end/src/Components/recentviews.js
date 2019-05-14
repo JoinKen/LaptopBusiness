@@ -35,22 +35,22 @@ class RecentView extends Component {
         }
     }
 
-    // showProduct = () => {
-    //     let resuilt;
-    //     console.log(this.state);
-    //     console.log(this.state.products);
-    //     if (this.state.haveData === true) {
-    //         resuilt = this.state.products.map((item, index) => {
-    //             return (
-    //                 <Iteam_arrivals key={index} info={item} />
-    //             )
-    //         })
-    //     }
-    //     else {
-    //         resuilt = <div>Không có dữ liệu</div>
-    //     }
-    //     return resuilt
-    // }
+    showProduct = () => {
+        let resuilt;
+        console.log(this.state);
+        console.log(this.state.products);
+        if (this.state.haveData === true) {
+            resuilt = this.state.products.map((item, index) => {
+                return (
+                    <Iteam_arrivals key={index} info={item} />
+                )
+            })
+        }
+        else {
+            resuilt = <div>Không có dữ liệu</div>
+        }
+        return resuilt
+    }
     render() {
         // $('.owl-carousel').owlCarousel({
         //     loop:true,
@@ -59,7 +59,7 @@ class RecentView extends Component {
         //     responsive:{
         //         0:{
         //             items:1
-        //         },
+        //         },s
         //         600:{
         //             items:3
         //         },
@@ -104,7 +104,7 @@ class RecentView extends Component {
                                         >
                                             <div className="show">
                                                 {
-                                                    {/* this.showProduct() */ }
+                                                    this.showProduct()
                                                 }
                                             </div>
 

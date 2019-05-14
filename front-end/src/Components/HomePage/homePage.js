@@ -12,10 +12,8 @@ import Trends from '../trends';
 import Reviews from '../reviews';
 import Viewed from '../viewed';
 import Brands from '../brands';
-// import RecentViews from '../recentviews';
 import NewLetter from '../newslettesr';
 
-// import ListLapTop from '../Laptop/listLapTop';
 class homePage extends Component {
   render() {
     return (

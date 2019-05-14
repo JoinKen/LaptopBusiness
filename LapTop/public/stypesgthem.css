@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	font-family:  Times New Roman, serif;
+	font-size: 34px;
+}
+form div{
+	margin-bottom: 20px;
+}
+
+.main-content{
+	width: 1000px;
+	border:1px solid  #000;
+	background: #89F0E5;
+	margin :40px;
+	padding: 20px 20px 0px 25px;
+}
+.card-header{
+
+	color: #322AF0;
+	font-size: 14px;
+	
+
+}
+#button:hover{
+	color:#fff;
+	background: #89F0E5;
+	cursor:pointer;
+}

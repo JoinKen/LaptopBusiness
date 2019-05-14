@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sửa sản phẩm</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+  <h1 style="color:red">QUẢN LÝ SẢN PHẨM</h1>
+  <p></p> 
+</div>
+<fieldset>
+   <center><div id="myform" class="main-content" style="background-color:#A2EAF3; width:1200px; margin-bottom: 50px">  
+     <div class="card-header"  >
+                                        <strong style="color:blue;font-size: 25px">Sửa sản phẩm</strong>
+                                    </div>
+  <div class="card-body card-block">
+                                        <form action="" method="post" role="form" enctype="multipart/form-data" >
+                
+                                  <div class="row form-group">
+                                                
+                                                 <div class="col col-md-3">
+                                                        <label for="name_input" class=" form-control-label">Nameproduct</label>
+                                                    </div>
+                                    <div class="col-12 col-md-8">
+                                                        <input type="text" id="name" name="txtTenSP"
+                                                        class="form-control" placeholder="Tên sản phẩm"  value="<%= sp.nameproduct %>" >
+                                                    </div>
+                                  </div>
+                                             
+                                                  
+                                           <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="status_input" class=" form-control-label">Priceenter</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-8">
+                                                        <input type="text" id="status" name="txtpriceenter"
+                                                        class="form-control" placeholder="Giá nhập"  value="<%= sp.priceenter %>"  >
+                                                    </div>
+                                                </div>
+                                           
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="status_input" class=" form-control-label">Saleprice</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-8">
+                                                        <input type="text" id="price" name="txtsaleprice"
+                                                        class="form-control" placeholder="Giá bán"  value="<%= sp.saleprice %>" >
+                                                    </div>
+                                                </div>
+                                              <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="amounts_input" class=" form-control-label">Amount</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-8">
+                                                        <input type="text" id="amount" name="txtamount"
+                                                        class="form-control" placeholder="Số lượng"  value="<%= sp.amount %>"  >
+                                                    </div>
+                                                </div>
+                                               <br>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="borrowed_day_input" class=" form-control-label">dataadd</label>
+                                                </div>
+                                                <div class="col-12 col-md-8">
+                                                    <input type="date" id="borrowed_day" name="dateNgayThem" class="form-control" >
+                                                </div>
+                                            </div>
+                                          <div class="row form-group">
+                                              <div class="col col-md-3">
+                                                  <lable for="card_num_input" class=" form-control-label"> Describe</lable>
+                                              </div> 
+                                              <div  class="col-12 col-md-8">
+                                                   <textarea type="text" id="note" rows="9" placeholder="Mô tả" name="txtnote_input" value="<%= sp.describe %>"class="form-control"  ></textarea>
+                                              </div>
+                                             
+                                                  
+                                            </div>
+                                        <br>
+                                         <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="card_num_input" class=" form-control-label">Idimage</label>
+                                                </div>
+                                                    <input type="text" id="idimage" name="txtidimage" 
+                                                      value="<%= sp.idimage %>" >
+                                                </div>
+                                            </div><br>
+                                            <div class="col-group row">
+                        
+                                                <div class="col col-md-4"> <label class="btn btn-default btn-file" style="background-color: grey; color: white">Old image</label>
+                                                    <img width="60px" src="../upload/<%= sp.image %>" alt="huong">
+                                                </div>
+                                          
+                                       
+                                                <div class="col col-md-4">
+                                                    <label class="btn btn-default btn-file"  style="background-color: grey; color: white">New image</label>
+                                                    <input type="file" id="newimage" name="uploadfile" 
+                                                   >
+                                                </div>
+                                     
+                                           </div> 
+                                            <br>
+                                         <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="card_num_input" class=" form-control-label">Idbrand</label>
+                                                </div>
+                                                <div class="col-12 col-md-8">
+                                                    <input type="text" id="ibrand_num" name="txtidbrand" 
+                                                    placeholder="Mã loại" class="form-control" value="<%= sp.idbrand %>" >
+                                                </div>
+                                            </div>
+                                        <div class="row form-group">
+                                                
+                                                 <div class="col col-md-3">
+                                                        <label for="name_input" class=" form-control-label">Namebrand</label>
+                                                    </div>
+                                                     <div 
+                                                    class="col-12 col-md-8">
+                                     <input type ="text" id="namebrand" name="txtnamebrand"  placeholder="Tên loại"
+                                                   class="form-control" value="<%= sp.namebrand %>" >
+                                                    </div>
+                                            </div>
+                                             
+                                        <div class="card-footer">
+                                            <button type="submit" class="btn btn-primary btn-sm" name="btnSuaSP"value="SuaSP"/>
+                                                <i class="fa fa-subway"></i> Hoàn tất
+                                                 </button>
+                                        </div> 
+                                    </form>
+                                </div>
+                               
+                                 </div>
+                                  </center>
+                                 </fieldset>
+
+</body>
+      
+</html>

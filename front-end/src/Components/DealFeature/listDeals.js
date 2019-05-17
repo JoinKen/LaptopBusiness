@@ -10,35 +10,30 @@ class listDeals extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      FeatureProducts: {},
+      DealProducts: {},
       haveData: false,
     }
-    console.log("constructor");
   }
   // Hàm này gọi khi component dc khởi tạo thông qua constructor
   componentWillMount() {
-    this.props.getAllFeatureProductAct('DEAL');
-    console.log("componentWillMount");
+    this.props.getAllDealProductAct('DEAL');
   }
 
   /* Hàm này dc gọi khi component nhận dc một props mới*/
   componentWillReceiveProps(nextProps) {
-    if (nextProps.FeatureProducts.code === "ok") {
+    if (nextProps.DealProducts.code === "ok") {
       this.setState({
-        FeatureProducts: nextProps.FeatureProducts.data,
+        DealProducts: nextProps.DealProducts.data,
         haveData: true
       });
     }
-    console.log("componentWillReceiveProps");
   }
 
 
   showDeal = () => {
     let result;
-    console.log("showDeal");
-    console.log(this.state.haveData);
     if (this.state.haveData === true) {
-      result = this.state.FeatureProducts.map((item, index) => {
+      result = this.state.DealProducts.map((item, index) => {
         return (
           <DealItem key={index} info={item} />)
       });
@@ -69,17 +64,15 @@ class listDeals extends Component {
 }
 // Xác định lấy state nào nào store lưu trữ
 const mapStateToProps = (state) => {
-  console.log("mapStateToProps");
   return {
-    FeatureProducts: state.FeatureProducts,
+    DealProducts: state.DealProducts,
   }
 }
 
 const mapDispatchToProps = (dispatch, props) => {
-  console.log("mapDispatchToProps");
   return {
-    getAllFeatureProductAct: (statementType) => {
-      dispatch(actions.getAllFeatureProductAct(statementType));
+    getAllDealProductAct: (statementType) => {
+      dispatch(actions.getAllDealProductAct(statementType));
     }
   }
 }

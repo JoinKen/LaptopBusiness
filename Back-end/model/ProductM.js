@@ -26,7 +26,7 @@ Products.getDealFeatureProduct = function (statementType, result) {
 };
 
 Products.getAllProduct = function (result) {
-  mysql.query("SELECT * FROM laptopbusiness.Product;", function (err, res) {
+  mysql.query("call laptopbusiness.AllProduct();", function (err, res) {
     if (err) {
       result(null, err);
     } else {

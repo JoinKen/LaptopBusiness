@@ -1,39 +1,31 @@
 import callApi from '../until/callAPI';
 import * as Types from '../Constant/ActionType';
 
-export const getProductError = (message) => {
+export const getFeatureError = (message) => {
     return {
-        type: Types.SELECT_PRODUCT_ERR,
+        type: Types.SELECT_FEATUREPRODUCT_ERR,
         message
     }
 }
-export const getProduct = (data) => {
+export const getAllFeatureProducts = (data) => {
     return {
-        type: Types.SELECT_PRODUCT,
+        type: Types.SELECT_FEATUREPRODUCT,
         data
     }
 }
-export const getFeatureProductError = (message) => {
-    return {
-        type: Types.SELECT_FEATURE_PRODUCT_ERR,
-        message
-    }
-}
-export const getFeatureProduct = (data) => {
-    return {
-        type: Types.SELECT_FEATURE_PRODUCT,
-        data
-    }
-}
-export const getFeatureProductAct = () => {
+
+export const getAllFeatureProductsAct = () => {
     return (dispatch) => {
-        return callApi('listFeatureProduct', 'GET').then(res => {
+        var linkParam = "listFeatureProduct?statementType=";
+        // var linkParam = 'listFeatureProduct';
+        return callApi(linkParam, "GET").then(res => {
             if (res.data.length <= 0) {
-                dispatch(getProductError(res.data));
+                dispatch(getFeatureError(res.data));
             }
             else {
+                dispatch(getAllFeatureProducts(res.data));
+                console.log("getAllFeatureProductsAct");
                 console.log(res.data);
-                dispatch(getFeatureProduct(res.data));
             }
         });
     }

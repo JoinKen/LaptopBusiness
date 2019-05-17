@@ -32,6 +32,7 @@ class App extends Component {
             exact={route.exact}
             component={route.main}
           />
+
         )
       })
       return <Switch>{result}</Switch>

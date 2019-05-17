@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import FeatureProducts from '../Reducer/feature_products';
+import FeatureProducts from '../Reducer/featureproducts';
 
 const appReducers = combineReducers({
-    FeatureProducts
+    FeatureProducts,
 });
 export default appReducers;

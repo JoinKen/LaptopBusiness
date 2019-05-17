@@ -2,17 +2,17 @@
 import * as Types from '../Constant/ActionType';
 
 var ArrayFeatureProduct = [];
-const FeatureProducts = (state = ArrayFeatureProduct, action) => {
+const BestRatedProducts = (state = ArrayFeatureProduct, action) => {
     let json;
     switch (action.type) {
-        case Types.FEATUREPRODUCT:
+        case Types.BESTRATEDPRODUCT:
             json = {
                 code: 'ok',
                 data: action.data
             }
             state = json;
             return state;
-        case Types.FEATUREPRODUCT_ERR:
+        case Types.BESTRATEDPRODUCT_ERR:
             json = {
                 code: 'err',
                 data: action.data
@@ -23,4 +23,4 @@ const FeatureProducts = (state = ArrayFeatureProduct, action) => {
             return state;
     }
 }
-export default FeatureProducts;
+export default BestRatedProducts;

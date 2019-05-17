@@ -10,7 +10,7 @@ class DealItem extends Component {
     }
     render() {
         return (
-            <div className="owl-item deals_item">
+            <div className="owl-item deals_item" key={this.props.key}>
                 <div className="deals_image"><img src={this.props.info.link} alt /></div>
                 <div className="deals_content">
                     <div className="deals_info_line d-flex flex-row justify-content-start">
@@ -48,6 +48,7 @@ class DealItem extends Component {
                                     <span>secs</span>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -58,8 +59,7 @@ class DealItem extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        products: state.products
+        DealProducts: state.DealProducts
     }
 }
-
 export default connect(mapStateToProps, null)(DealItem);

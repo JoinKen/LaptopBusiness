@@ -6,17 +6,20 @@
     "axios": "^0.18.0",
     "connect": "^3.6.6",
     "create-store": "^1.0.0",
-    "jquery": "^3.4.0",
+    "jquery": "^3.4.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-html-parser": "^2.0.2",
     "react-redux": "^6.0.1",
     "react-redux-connect": "^0.1.0",
     "react-redux-provide": "^7.0.6",
+    "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8",
+    "react-scripts": "3.0.0",
     "react-switch": "^4.1.0",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "jquery-bridget": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -27,10 +30,16 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

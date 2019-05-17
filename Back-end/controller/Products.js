@@ -3,6 +3,7 @@ var mysql = require("../dbconnection.js");
 
 
 exports.list_all_FeatureProducts = function (req, res) {
+  //statementType: [FEATURE, ONSALE, BESTRATED, DEAL, or 'null']
   Products.getDealFeatureProduct(req.query.statementType, function (err, Products) {
     if (err) res.send(err);
     res.send(Products);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../Actions/product_action';
+import * as actions from '../../Actions/feature_product_action';
 import DealItem from '../DealFeature/dealItem';
 
 class listDeals extends Component {
@@ -10,22 +10,22 @@ class listDeals extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: {},
+      FeatureProducts: {},
       haveData: false,
     }
     console.log("constructor");
   }
   // Hàm này gọi khi component dc khởi tạo thông qua constructor
   componentWillMount() {
-    this.props.getAllFeatureProductsAct();
+    this.props.getAllFeatureProductAct('DEAL');
     console.log("componentWillMount");
   }
 
   /* Hàm này dc gọi khi component nhận dc một props mới*/
   componentWillReceiveProps(nextProps) {
-    if (nextProps.products.code === "ok") {
+    if (nextProps.FeatureProducts.code === "ok") {
       this.setState({
-        products: nextProps.products.data,
+        FeatureProducts: nextProps.FeatureProducts.data,
         haveData: true
       });
     }
@@ -38,11 +38,10 @@ class listDeals extends Component {
     console.log("showDeal");
     console.log(this.state.haveData);
     if (this.state.haveData === true) {
-      result = this.state.products.map((item, index) => {
+      result = this.state.FeatureProducts.map((item, index) => {
         return (
-          <DealItem key={index} info={item} />
-        )
-      })
+          <DealItem key={index} info={item} />)
+      });
     }
     else {
       result = <div>Không có dữ liệu</div>
@@ -51,7 +50,6 @@ class listDeals extends Component {
   }
   render() {
     return (
-
       <div className="deals">
         <div className="deals_title">Deals of the Week</div>
         <div className="deals_slider_container">
@@ -73,15 +71,15 @@ class listDeals extends Component {
 const mapStateToProps = (state) => {
   console.log("mapStateToProps");
   return {
-    products: state.products
+    FeatureProducts: state.FeatureProducts,
   }
 }
 
 const mapDispatchToProps = (dispatch, props) => {
   console.log("mapDispatchToProps");
   return {
-    getAllFeatureProductsAct: () => {
-      dispatch(actions.getAllFeatureProductsAct());
+    getAllFeatureProductAct: (statementType) => {
+      dispatch(actions.getAllFeatureProductAct(statementType));
     }
   }
 }

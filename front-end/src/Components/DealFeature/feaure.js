@@ -2,12 +2,7 @@ import React, { Component } from 'react';
 import FeaturedItemSlider from './feature_item_slider';
 class feature extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            isPanelActive: "active",
-        }
-    }
+
 
     render() {
         return (

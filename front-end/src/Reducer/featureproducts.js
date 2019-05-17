@@ -5,17 +5,17 @@ var ArrayFeatureProduct = [];
 const FeatureProducts = (state = ArrayFeatureProduct, action) => {
     let json;
     switch (action.type) {
-        case Types.SELECT_FEATUREPRODUCT:
+        case Types.FEATUREPRODUCT:
             json = {
                 code: 'ok',
                 data: action.data
             }
             state = json;
             return state;
-        case Types.SELECT_FEATUREPRODUCT_ERR:
+        case Types.FEATUREPRODUCT_ERR:
             json = {
                 code: 'err',
-                data: action.message
+                data: action.data
             }
             state = json;
             return state;

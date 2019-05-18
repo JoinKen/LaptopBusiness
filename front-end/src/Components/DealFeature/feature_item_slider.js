@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../../Actions/feature_product_action';
 
 class FeatureItemSlider extends Component {
 
@@ -33,7 +34,6 @@ class FeatureItemSlider extends Component {
     }
 
     render() {
-        console.log(this.props.info.idProduct);
         return (
             <div className="featured_slider_item">
                 <div className="border_active" />
@@ -47,7 +47,10 @@ class FeatureItemSlider extends Component {
                         </div>
                         {this.setRating(this.props.info)}
                         <div className="product_extras">
-                            <button className="product_cart_button">Add to Cart</button>
+                            <button
+                                className="product_cart_button"
+                                onClick={() => this.onAddToCart(this.props.info)}
+                            >Add to Cart</button>
                         </div>
                     </div>
                     <div className="product_fav"><i className="fas fa-heart" id={this.props.info.idProduct} /></div>
@@ -60,10 +63,18 @@ class FeatureItemSlider extends Component {
 
         );
     }
-}
-const mapStateToProps = (state) => {
-    return {
-        Products: state.Products
+    onAddToCart = (product) => {
+        this.props.onAddToCart(product);
+        console.log("da them vao gio hang");
     }
 }
-export default connect(mapStateToProps, null)(FeatureItemSlider);
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        onAddToCart: (product) => {
+            dispatch(actions.actAddToCart(product, 1));
+            console.log("actAddToCart called!!!!");
+        }
+    }
+
+}
+export default connect(null, mapDispatchToProps)(FeatureItemSlider);

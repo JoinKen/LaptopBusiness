@@ -1,8 +1,5 @@
 
 import * as Types from '../Constant/ActionType';
-
-
-
 var InitialProduct = [];
 const Products = (state = InitialProduct, action) => {
     let json;

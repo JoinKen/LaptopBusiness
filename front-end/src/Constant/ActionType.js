@@ -7,3 +7,6 @@ export const DEALPRODUCT_ERR = "DEALPRODUCT_ERR";
 export const ADD_TOCART = "ADD_TOCART";
 export const ADD_TOCART_ERR = "ADD_TOCART_ERR";
 
+
+export const MESSAGE_CHANGE = "MESSAGE_CHANGE";
+export const MESSAGE_CHANGE_ERR = "MESSAGE_CHANGE_ERR";

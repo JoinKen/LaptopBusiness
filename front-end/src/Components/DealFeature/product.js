@@ -42,6 +42,7 @@ class Product extends Component {
                 return (<FeaturedItemSlider
                     key={index} info={item}
                     onAddToCart={onAddToCart}
+                    onChangeMessage={onAddToCart}
                 />)
             });
         }
@@ -55,7 +56,9 @@ class Product extends Component {
         var { onAddToCart } = this.props;
         if (this.state.haveData === true) {
             result = this.state.OnSaleProducts.map((item, index) => {
-                return (<FeaturedItemSlider key={index} info={item} onAddToCart={onAddToCart} />)
+                return (<FeaturedItemSlider key={index} info={item}
+                    onAddToCart={onAddToCart}
+                    onChangeMessage={onAddToCart} />)
             });
         }
         else {
@@ -68,7 +71,9 @@ class Product extends Component {
         var { onAddToCart } = this.props;
         if (this.state.haveData === true) {
             result = this.state.BestRatedProducts.map((item, index) => {
-                return (<FeaturedItemSlider key={index} info={item} onAddToCart={onAddToCart} />)
+                return (<FeaturedItemSlider key={index} info={item}
+                    onAddToCart={onAddToCart}
+                    onChangeMessage={onAddToCart} />)
             });
         }
         else {
@@ -118,24 +123,25 @@ class Product extends Component {
         );
     }
 }
-//Validate dữ liệu
-Product.propTypes = {
-    Products: PropTypes.arrayOf(
-        PropTypes.shape(
-            PropTypes.arrayOf(
-                PropTypes.shape({
-                    idProduct: PropTypes.number.isRequired,
-                })
-            ).isRequired
-        )
-    ).isRequired
-}
+// //Validate dữ liệu
+// Product.propTypes = {
+//     Products: PropTypes.arrayOf(
+//         PropTypes.shape(
+//             PropTypes.arrayOf(
+//                 PropTypes.shape({
+//                     idProduct: PropTypes.number.isRequired,
+//                 })
+//             ).isRequired
+//         )
+//     ).isRequired
+// }
 
 // Xác định lấy state nào nào store lưu trữ
 const mapStateToProps = state => {
     return {
         Products: state.Products,
         Carts: state.Carts,
+        messages: state.messages
         //state.Products, //Ở trong reducer index là gì thì nó là vậy
     }
 }

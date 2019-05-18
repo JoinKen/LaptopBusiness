@@ -14,6 +14,7 @@ import Viewed from '../Components/viewed';
 import Brands from '../Components/brands';
 import NewLetter from '../Components/newslettesr';
 import Navigation from '../Components/navigation';
+import MessagesContainer from '../Containers/MessagesContainer';
 class homePage extends Component {
   render() {
     return (
@@ -21,6 +22,7 @@ class homePage extends Component {
         <Navigation />
         <Banner />
         <Characteristics />
+        <MessagesContainer />
         <DealsFeature />
         <Banner2 />
         <NewArrivals />

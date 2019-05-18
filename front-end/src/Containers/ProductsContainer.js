@@ -85,6 +85,7 @@ class ProductContainer extends Component {
 const mapStateToProps = (state) => {
     return {
         Products: state.Products,
+        messages: state.messages
         //state.Products, //Ở trong reducer index là gì thì nó là vậy
     }
 }

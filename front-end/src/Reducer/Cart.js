@@ -11,10 +11,8 @@ const Cart = (state = initialState, action) => {
     switch (action.type) {
         case Types.ADD_TOCART:
             index = findProductInCart(state, product);
-            console.log("index", index);
-            console.log("state[0].length", state.length);
             if (index !== -1) {
-                state.Carts[index].quantity += quantity;
+                state[index].quantity += quantity;
             }
             else {
                 state.push({
@@ -22,6 +20,7 @@ const Cart = (state = initialState, action) => {
                     quantity
                 });
             }
+            localStorage.setItem('CART', JSON.stringify(state));
             return [...state];
         case Types.ADD_TOCART_ERR:
             json = {
@@ -37,8 +36,6 @@ const Cart = (state = initialState, action) => {
 
 var findProductInCart = (state, product) => {
     var index = -1;
-    console.log("Cart.length", state.length);
-    console.log(product);
     if (state.length > 0) {
         for (var i = 0; i < state.length; i++) {
             if (state[i].product.idProduct === product.idProduct) {

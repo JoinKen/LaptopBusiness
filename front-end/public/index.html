@@ -57,6 +57,48 @@
     rel="stylesheet">
   <link href="%PUBLIC_URL%/assets/css/notification/notification.css" rel="stylesheet">
 
+  <style rel="stylesheet" type="text/css">
+    .alert1 {
+      padding: 20px;
+      background-color: #f44336;
+      color: white;
+      opacity: 1;
+      transition: opacity 0.6s;
+      margin-bottom: 15px;
+      /* position: fixed; */
+      /* top: 10px; */
+      /* right: 10px; */
+      /* display: block; */
+      /* visibility: visible; */
+    }
+
+    .alert1.success {
+      background-color: #4CAF50;
+    }
+
+    .alert1.info {
+      background-color: #2196F3;
+    }
+
+    .alert1.warning {
+      background-color: #ff9800;
+    }
+
+    .closebtn1 {
+      margin-left: 15px;
+      color: white;
+      font-weight: bold;
+      float: right;
+      font-size: 22px;
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .closebtn1:hover {
+      color: black;
+    }
+  </style>
 
 </head>
 
@@ -88,6 +130,20 @@
   <script src="%PUBLIC_URL%/assets/js/cart_custom.js"></script>
   <script src="%PUBLIC_URL%/assets/plugins/easing/easing.js"></script>
   <script src="%PUBLIC_URL%/assets/js/product_custom.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      var close = document.getElementsByClassName("closebtn1");
+      var i;
+      for (i = 0; i < close.length; i++) {
+        close[i].onclick = function () {
+          var div = this.parentElement;
+          div.style.opacity = "0";
+          setTimeout(function () { div.style.display = "flex"; }, 600);
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>

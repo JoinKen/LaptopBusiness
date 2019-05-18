@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../../Actions/feature_product_action';
 
 class DealItem extends Component {
+
+    constructor(props) {
+        super(props);
+
+    }
 
     salePriceAction = (product) => {
         if (product.value) {
@@ -11,14 +17,14 @@ class DealItem extends Component {
     render() {
         return (
             <div className="owl-item deals_item" key={this.props.key}>
-                <div className="deals_image"><img src={this.props.info.link} alt /></div>
-                <div className="deals_content">
+                <div className="deals_image"><a onClick={() => this.onAddToCart(this.props.info)} href="javascript:void(0);"><img src={this.props.info.link} alt="" /></a></div>
+                <div className="deals_content" >
                     <div className="deals_info_line d-flex flex-row justify-content-start">
-                        <div className="deals_item_category"><a href="#">{this.props.info.nameProduct}</a></div>
+                        <div className="deals_item_category"><a onClick={() => this.onAddToCart(this.props.info)} href="javascript:void(0);">{this.props.info.nameProduct}</a></div>
                         <div className="deals_item_price_a ml-auto">${this.props.info.salePrice}</div>
                     </div>
                     <div className="deals_info_line d-flex flex-row justify-content-start">
-                        <div className="deals_item_name">{this.props.info.nameProduct}</div>
+                        <div className="deals_item_name"><a onClick={() => this.onAddToCart(this.props.info)} href="javascript:void(0);">{this.props.info.nameProduct}</a></div>
                         <div className="deals_item_price ml-auto">${this.salePriceAction(this.props.info)}</div>
                     </div>
                     <div className="available">
@@ -55,6 +61,10 @@ class DealItem extends Component {
             </div>
         );
     }
+    onAddToCart = (product) => {
+        this.props.onAddToCart(product);
+        console.log("da them vao gio hang");
+    }
 }
 
 const mapStateToProps = (state) => {
@@ -62,4 +72,13 @@ const mapStateToProps = (state) => {
         DealProducts: state.DealProducts
     }
 }
-export default connect(mapStateToProps, null)(DealItem);
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        onAddToCart: (product) => {
+            dispatch(actions.actAddToCart(product, 1));
+            console.log("actAddToCart called!!!!");
+        }
+    }
+
+}
+export default connect(mapStateToProps, mapDispatchToProps)(DealItem);

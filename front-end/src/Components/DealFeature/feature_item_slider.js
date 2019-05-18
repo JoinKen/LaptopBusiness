@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../Actions/feature_product_action';
+import * as msg from '../../Constant/Message';
 
 class FeatureItemSlider extends Component {
+
 
     salePriceAction = (product) => {
         if (product.value != null) {
@@ -50,7 +52,7 @@ class FeatureItemSlider extends Component {
                             <button
                                 className="product_cart_button"
                                 onClick={() => this.onAddToCart(this.props.info)}
-                            >Add to Cart</button>
+                            > Buy </button>
                         </div>
                     </div>
                     <div className="product_fav"><i className="fas fa-heart" id={this.props.info.idProduct} /></div>
@@ -63,18 +65,20 @@ class FeatureItemSlider extends Component {
 
         );
     }
+
     onAddToCart = (product) => {
         this.props.onAddToCart(product);
-        console.log("da them vao gio hang");
+        this.props.onChangeMessage(msg.MSG_ADD_TOCART_SUCESS);
     }
 }
 const mapDispatchToProps = (dispatch, props) => {
     return {
         onAddToCart: (product) => {
             dispatch(actions.actAddToCart(product, 1));
-            console.log("actAddToCart called!!!!");
+        },
+        onChangeMessage: (msg) => {
+            dispatch(actions.actAChangeMessage(msg));
         }
     }
-
 }
 export default connect(null, mapDispatchToProps)(FeatureItemSlider);

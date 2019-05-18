@@ -8,6 +8,13 @@ export const actAddToCart = (product, quantity) => {
         quantity
     }
 }
+export const actAChangeMessage = (msg) => {
+    return {
+        type: Types.MESSAGE_CHANGE,
+        msg
+    }
+}
+
 export const getError = (message) => {
     return {
         type: Types.PRODUCT_ERR,

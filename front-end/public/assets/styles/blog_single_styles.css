@@ -1311,7 +1311,7 @@ select option {
 }
 
 .single_post_quote .config_boder {
-	background-color: antiquewhite;
+	background-color: rgb(174, 253, 184);
 }
 
 .quote_image {}

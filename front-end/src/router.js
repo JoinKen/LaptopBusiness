@@ -1,5 +1,7 @@
-import Home from '../src/Pages/Home';
 import React from "react";
+import Home from '../src/Pages/Home';
+import Cart from '../src/Pages/Cart';
+import ProductDetail from './Pages/ProductDetail';
 
 const router = [
     {
@@ -7,10 +9,15 @@ const router = [
         exact: true,
         main: () => <Home />
     },
-    // {
-    //     path:"/Product",
-    //     exact: false,
-    //     main :() => <Product/>   
-    // }
+    {
+        path: "/Cart",
+        exact: true,
+        main: () => <Cart />
+    },
+    {
+        path: "/Product",
+        exact: true,
+        main: () => <ProductDetail />
+    }
 ]
 export default router;

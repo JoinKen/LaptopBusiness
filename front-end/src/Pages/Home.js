@@ -13,10 +13,12 @@ import Reviews from '../Components/reviews';
 import Viewed from '../Components/viewed';
 import Brands from '../Components/brands';
 import NewLetter from '../Components/newslettesr';
+import Navigation from '../Components/navigation';
 class homePage extends Component {
   render() {
     return (
       <div>
+        <Navigation />
         <Banner />
         <Characteristics />
         <DealsFeature />

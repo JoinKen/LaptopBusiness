@@ -1,13 +1,9 @@
 import { combineReducers } from "redux";
-import FeatureProducts from './FeatureProducts';
 import DealProducts from './DealProducts';
-import OnSaleProducts from './OnSaleProducts';
-import BestRatedProducts from './BestRatedProducts';
+import Products from './Products';
 
 const appReducers = combineReducers({
-    FeatureProducts,
     DealProducts,
-    OnSaleProducts,
-    BestRatedProducts
+    Products,
 });
 export default appReducers;

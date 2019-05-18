@@ -1,12 +1,12 @@
 
 import React, { Component } from 'react'
-
+import { Link } from 'react-router-dom';
 
 
 class Header extends Component {
   render() {
     return (
-
+      // Link to = "/Process" > <button className="navagation btn btn-success voca-style btn-navigation">MY PROCESS</button></Link >
       <header className="header">
         {/* Top Bar */}
         <div className="top_bar">
@@ -57,7 +57,7 @@ class Header extends Component {
               {/* Logo */}
               <div className="col-lg-2 col-sm-3 col-3 order-1">
                 <div className="logo_container">
-                  <div className="logo"><a href="#">OneTech</a></div>
+                  <div className="logo"><a href="http://localhost:3000">OneTech</a></div>
                 </div>
               </div>
               {/* Search */}
@@ -105,7 +105,7 @@ class Header extends Component {
                         <div className="cart_count"><span>10</span></div>
                       </div>
                       <div className="cart_content">
-                        <div className="cart_text"><a href="#">Cart</a></div>
+                        <div className="cart_text"> <a href="http://localhost:3000/Cart">Cart</a></div>
                         <div className="cart_price">$85</div>
                       </div>
                     </div>
@@ -116,120 +116,6 @@ class Header extends Component {
           </div>
         </div>
         {/* Main Navigation */}
-        <nav className="main_nav">
-          <div className="container">
-            <div className="row">
-              <div className="col">
-                <div className="main_nav_content d-flex flex-row">
-                  {/* Categories Menu */}
-                  <div className="cat_menu_container">
-                    <div className="cat_menu_title d-flex flex-row align-items-center justify-content-start">
-                      <div className="cat_burger"><span /><span /><span /></div>
-                      <div className="cat_menu_text">categories</div>
-                    </div>
-                    <ul className="cat_menu">
-                      <li><a href="#">Laptop desk <i className="fas fa-chevron-right ml-auto" /></a>
-                      </li>
-                      <li><a href="#">Gaming<i className="fas fa-chevron-right" /></a></li>
-                      <li className="hassubs">
-                        <a href="#">gaming 1<i className="fas fa-chevron-right" /></a>
-                        <ul>
-                          <li className="hassubs">
-                            <a href="#">Menu Item<i className="fas fa-chevron-right" /></a>
-                            <ul>
-                              <li><a href="#">Menu Item<i className="fas fa-chevron-right" /></a></li>
-                              <li><a href="#">Menu Item<i className="fas fa-chevron-right" /></a></li>
-                              <li><a href="#">Menu Item<i className="fas fa-chevron-right" /></a></li>
-                              <li><a href="#">Menu Item<i className="fas fa-chevron-right" /></a></li>
-                            </ul>
-                          </li>
-                          <li><a href="#">Menu Item<i className="fas fa-chevron-right" /></a></li>
-                          <li><a href="#">Menu Item<i className="fas fa-chevron-right" /></a></li>
-                          <li><a href="#">Menu Item<i className="fas fa-chevron-right" /></a></li>
-                        </ul>
-                      </li>
-                      <li><a href="#">Laptop best<i className="fas fa-chevron-right" /></a>
-                      </li>
-                      <li><a href="#">popular<i className="fas fa-chevron-right" /></a></li>
-                      <li><a href="#">Gift<i className="fas fa-chevron-right" /></a></li>
-                      <li><a href="#">Video Games &amp; Consoles<i className="fas fa-chevron-right" /></a>
-                      </li>
-                      <li><a href="#">Items<i className="fas fa-chevron-right" /></a></li>
-                    </ul>
-                  </div>
-                  {/* Main Nav Menu */}
-                  <div className="main_nav_menu ml-auto">
-                    <ul className="standard_dropdown main_nav_dropdown">
-                      <li><a href="#">Home<i className="fas fa-chevron-down" /></a></li>
-                      <li className="hassubs">
-                        <a href="#">Super Deals<i className="fas fa-chevron-down" /></a>
-                        <ul>
-                          <li>
-                            <a href="#">Menu Item<i className="fas fa-chevron-down" /></a>
-                            <ul>
-                              <li><a href="#">Menu Item<i className="fas fa-chevron-down" /></a>
-                              </li>
-                              <li><a href="#">Menu Item<i className="fas fa-chevron-down" /></a>
-                              </li>
-                              <li><a href="#">Menu Item<i className="fas fa-chevron-down" /></a>
-                              </li>
-                            </ul>
-                          </li>
-                          <li><a href="#">Menu Item<i className="fas fa-chevron-down" /></a></li>
-                          <li><a href="#">Menu Item<i className="fas fa-chevron-down" /></a></li>
-                          <li><a href="#">Menu Item<i className="fas fa-chevron-down" /></a></li>
-                        </ul>
-                      </li>
-                      <li className="hassubs">
-                        <a href="#">Featured Brands<i className="fas fa-chevron-down" /></a>
-                        <ul>
-                          <li>
-                            <a href="#">Menu Item<i className="fas fa-chevron-down" /></a>
-                            <ul>
-                              <li><a href="#">Menu Item<i className="fas fa-chevron-down" /></a>
-                              </li>
-                              <li><a href="#">Menu Item<i className="fas fa-chevron-down" /></a>
-                              </li>
-                              <li><a href="#">Menu Item<i className="fas fa-chevron-down" /></a>
-                              </li>
-                            </ul>
-                          </li>
-                          <li><a href="#">Menu Item<i className="fas fa-chevron-down" /></a></li>
-                          <li><a href="#">Menu Item<i className="fas fa-chevron-down" /></a></li>
-                          <li><a href="#">Menu Item<i className="fas fa-chevron-down" /></a></li>
-                        </ul>
-                      </li>
-                      <li className="hassubs">
-                        <a href="#">Pages<i className="fas fa-chevron-down" /></a>
-                        <ul>
-                          <li><a href="shop.html">Shop<i className="fas fa-chevron-down" /></a></li>
-                          <li><a href="product.html">Product<i className="fas fa-chevron-down" /></a></li>
-                          <li><a href="blog.html">Blog<i className="fas fa-chevron-down" /></a></li>
-                          <li><a href="blog_single.html">Blog Post<i className="fas fa-chevron-down" /></a></li>
-                          <li><a href="regular.html">Regular Post<i className="fas fa-chevron-down" /></a></li>
-                          <li><a href="cart.html">Cart<i className="fas fa-chevron-down" /></a></li>
-                          <li><a href="contact.html">Contact<i className="fas fa-chevron-down" /></a></li>
-                        </ul>
-                      </li>
-                      <li><a href="blog.html">Blog<i className="fas fa-chevron-down" /></a></li>
-                      <li><a href="contact.html">Contact<i className="fas fa-chevron-down" /></a></li>
-                    </ul>
-                  </div>
-                  {/* Menu Trigger */}
-                  <div className="menu_trigger_container ml-auto">
-                    <div className="menu_trigger d-flex flex-row align-items-center justify-content-end">
-                      <div className="menu_burger">
-                        <div className="menu_trigger_text">menu</div>
-                        <div className="cat_burger menu_burger_inner">
-                          <span /><span /><span /></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
         {/* Menu */}
         <div className="page_menu">
           <div className="container">

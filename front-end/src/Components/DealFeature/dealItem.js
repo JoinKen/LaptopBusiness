@@ -5,7 +5,7 @@ class DealItem extends Component {
 
     salePriceAction = (product) => {
         if (product.value) {
-            return product.salePrice * product.value;
+            return product.salePrice - product.salePrice * product.value;
         }
     }
     render() {
@@ -36,15 +36,15 @@ class DealItem extends Component {
                         <div className="deals_timer_content ml-auto">
                             <div className="deals_timer_box clearfix" data-target-time>
                                 <div className="deals_timer_unit">
-                                    <div id="deals_timer1_hr" className="deals_timer_hr" />
+                                    <div id="deals_timer2_hr" className="deals_timer_hr" />
                                     <span>hours</span>
                                 </div>
                                 <div className="deals_timer_unit">
-                                    <div id="deals_timer1_min" className="deals_timer_min" />
+                                    <div id="deals_timer2_min" className="deals_timer_min" />
                                     <span>mins</span>
                                 </div>
                                 <div className="deals_timer_unit">
-                                    <div id="deals_timer1_sec" className="deals_timer_sec" />
+                                    <div id="deals_timer2_sec" className="deals_timer_sec" />
                                     <span>secs</span>
                                 </div>
                             </div>

@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import FeaturedItemSlider from './feature_item_slider';
 import { connect } from 'react-redux';
 import * as actions from '../../Actions/feature_product_action';
-class Feature extends Component {
+import PropTypes from 'prop-types';
+class Product extends Component {
     /* nơi đầu tiên dc khởi chạy component
     khởi tạo các giá trị của state và đọc những giá trị props dc truyền vào
     */
     constructor(props) {
         super(props);
         this.state = {
-            FeatureProducts: {},
+            Products: {},
             OnSaleProducts: {},
             BestRatedProducts: {},
             haveData: false,
@@ -22,11 +23,11 @@ class Feature extends Component {
 
     /* Hàm này dc gọi khi component nhận dc một props mới*/
     componentWillReceiveProps(nextProps) {
-        if (nextProps.FeatureProducts.code === "ok") {
+        if (nextProps.Products.code === "ok") {
             this.setState({
-                FeatureProducts: nextProps.FeatureProducts.data[0],
-                OnSaleProducts: nextProps.FeatureProducts.data[1],
-                BestRatedProducts: nextProps.FeatureProducts.data[2],
+                Products: nextProps.Products.data[0],
+                OnSaleProducts: nextProps.Products.data[1],
+                BestRatedProducts: nextProps.Products.data[2],
                 haveData: true
             });
         }
@@ -36,7 +37,7 @@ class Feature extends Component {
     showFeaturedItemSlider = () => {
         let result;
         if (this.state.haveData === true) {
-            result = this.state.FeatureProducts.map((item, index) => {
+            result = this.state.Products.map((item, index) => {
                 return (<FeaturedItemSlider key={index} info={item} />)
             });
         }
@@ -111,11 +112,24 @@ class Feature extends Component {
         );
     }
 }
+//Validate dữ liệu
+Product.propTypes = {
+    Products: PropTypes.arrayOf(
+        PropTypes.shape(
+            PropTypes.arrayOf(
+                PropTypes.shape({
+                    idProduct: PropTypes.number.isRequired,
+                })
+            ).isRequired
+        )
+    ).isRequired
+}
 
 // Xác định lấy state nào nào store lưu trữ
 const mapStateToProps = (state) => {
     return {
-        FeatureProducts: state.FeatureProducts,
+        Products: state.Products,
+        //state.Products, //Ở trong reducer index là gì thì nó là vậy
     }
 }
 
@@ -127,4 +141,4 @@ const mapDispatchToProps = (dispatch, props) => {
     }
 
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Feature);
+export default connect(mapStateToProps, mapDispatchToProps)(Product);

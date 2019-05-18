@@ -52,6 +52,22 @@ class CartContainer extends Component {
         });
         return result;
     }
+    showCartResult(Carts) {
+        var result = 0;
+        console.log(Carts.length);
+        if (Carts.length > 0) {
+            for (var i = 0; i < Carts.length; i++) {
+                result += Carts[i].quantity * Carts[i].product.salePrice;
+            }
+            return (
+                <div className="order_total_content text-md-right">
+                    <div className="order_total_title">Order Total:</div>
+                    <div className="order_total_amount">$ {result}</div>
+                </div>);
+        } else {
+            return <div> <h5>Giá ở đâu mất tiêu rồi</h5> </div>
+        }
+    }
 
     showCart = (Carts) => {
         if (Carts.length > 0) {
@@ -69,10 +85,7 @@ class CartContainer extends Component {
                                     </div>
                                     {/* Order Total */}
                                     <div className="order_total">
-                                        <div className="order_total_content text-md-right">
-                                            <div className="order_total_title">Order Total:</div>
-                                            <div className="order_total_amount">$4000</div>
-                                        </div>
+                                        {this.showCartResult(Carts)}
                                     </div>
                                     <div className="cart_buttons">
                                         <button type="button" className="btn btn-default">Clear</button>
@@ -115,6 +128,5 @@ const mapDispatchToProps = (dispatch, props) => {
             dispatch(actions.getAllProductAct());
         }
     }
-
 }
 export default connect(mapStateToProps, mapDispatchToProps)(CartContainer);

@@ -1,6 +1,13 @@
 import callApi from '../until/callAPI';
 import * as Types from '../Constant/ActionType';
 
+export const actAddToCart = (product, quantity) => {
+    return {
+        type: Types.ADD_TOCART,
+        product,
+        quantity
+    }
+}
 export const getError = (message) => {
     return {
         type: Types.PRODUCT_ERR,

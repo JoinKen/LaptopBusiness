@@ -36,9 +36,13 @@ class Product extends Component {
 
     showFeaturedItemSlider = () => {
         let result;
+        var { onAddToCart } = this.props;
         if (this.state.haveData === true) {
             result = this.state.Products.map((item, index) => {
-                return (<FeaturedItemSlider key={index} info={item} />)
+                return (<FeaturedItemSlider
+                    key={index} info={item}
+                    onAddToCart={onAddToCart}
+                />)
             });
         }
         else {
@@ -48,9 +52,10 @@ class Product extends Component {
     }
     showOnSaleItemSlider = () => {
         let result;
+        var { onAddToCart } = this.props;
         if (this.state.haveData === true) {
             result = this.state.OnSaleProducts.map((item, index) => {
-                return (<FeaturedItemSlider key={index} info={item} />)
+                return (<FeaturedItemSlider key={index} info={item} onAddToCart={onAddToCart} />)
             });
         }
         else {
@@ -60,9 +65,10 @@ class Product extends Component {
     }
     showBestRatedItemSlider = () => {
         let result;
+        var { onAddToCart } = this.props;
         if (this.state.haveData === true) {
             result = this.state.BestRatedProducts.map((item, index) => {
-                return (<FeaturedItemSlider key={index} info={item} />)
+                return (<FeaturedItemSlider key={index} info={item} onAddToCart={onAddToCart} />)
             });
         }
         else {
@@ -126,9 +132,10 @@ Product.propTypes = {
 }
 
 // Xác định lấy state nào nào store lưu trữ
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         Products: state.Products,
+        Carts: state.Carts,
         //state.Products, //Ở trong reducer index là gì thì nó là vậy
     }
 }
@@ -139,6 +146,5 @@ const mapDispatchToProps = (dispatch, props) => {
             dispatch(actions.getAllProductAct());
         }
     }
-
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Product);

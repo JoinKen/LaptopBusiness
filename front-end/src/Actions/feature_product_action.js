@@ -28,7 +28,6 @@ export const getAllProductAct = () => {
             }
             else {
                 dispatch(getAllProduct(res.data))
-                console.log(res.data);
             }
         })
     }

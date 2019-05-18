@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../Actions/feature_product_action';
 import ProductCart from '../Components/Cart/ProductCart';
-import FeaturedItemSlider from '../Components/DealFeature/feature_item_slider';
-class ProductContainer extends Component {
+import * as actions from '../Actions/feature_product_action';
+import * as Message from '../Constant/Message';
+import ProductCartItem from '../Components/Cart/ProductCartItem';
+class CartContainer extends Component {
     /* nơi đầu tiên dc khởi chạy component
     khởi tạo các giá trị của state và đọc những giá trị props dc truyền vào
     */
@@ -11,8 +12,6 @@ class ProductContainer extends Component {
         super(props);
         this.state = {
             Products: {},
-            OnSaleProducts: {},
-            BestRatedProducts: {},
             haveData: false,
         }
     }
@@ -26,8 +25,6 @@ class ProductContainer extends Component {
         if (nextProps.Products.code === "ok") {
             this.setState({
                 Products: nextProps.Products.data[0],
-                OnSaleProducts: nextProps.Products.data[1],
-                BestRatedProducts: nextProps.Products.data[2],
                 haveData: true
             });
         }
@@ -36,55 +33,78 @@ class ProductContainer extends Component {
 
 
     render() {
+        var { Carts } = this.props;//Lưu ý nó phải giống ik chan phần dưới kia
+        console.log(Carts);
         return (
             <ProductCart>
+                {this.showCart(Carts)}
             </ProductCart>
         );
     }
 
-    showFeaturedItemSlider = () => {
-        let result;
-        if (this.state.haveData === true) {
-            result = this.state.Products.map((item, index) => {
-                return (<FeaturedItemSlider key={index} info={item} />)
-            });
-        }
-        else {
-            result = <div>Không có dữ liệu</div>
-        }
-        return result;
-    }
-    showOnSaleItemSlider = () => {
-        let result;
-        if (this.state.haveData === true) {
-            result = this.state.OnSaleProducts.map((item, index) => {
-                return (<FeaturedItemSlider key={index} info={item} />)
-            });
-        }
-        else {
-            result = <div>Không có dữ liệu</div>
-        }
-        return result;
-    }
-    showBestRatedItemSlider = () => {
-        let result;
-        if (this.state.haveData === true) {
-            result = this.state.BestRatedProducts.map((item, index) => {
-                return (<FeaturedItemSlider key={index} info={item} />)
-            });
-        }
-        else {
-            result = <div>Không có dữ liệu</div>
-        }
+    showCartItem = (Carts) => {
+        var result = Carts.map((item, index) => {
+            return <ProductCartItem
+                key={index}
+                info={item}
+                index={index}
+            />
+        });
         return result;
     }
 
+    showCart = (Carts) => {
+        if (Carts.length > 0) {
+            var result = (
+                <div className="cart_section">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-10 offset-lg-1">
+                                <div className="cart_container">
+                                    <div className="cart_title">Shopping Cart</div>
+                                    <div className="cart_items">
+                                        <ul className="cart_list">
+                                            {this.showCartItem(Carts)}
+                                        </ul>
+                                    </div>
+                                    {/* Order Total */}
+                                    <div className="order_total">
+                                        <div className="order_total_content text-md-right">
+                                            <div className="order_total_title">Order Total:</div>
+                                            <div className="order_total_amount">$4000</div>
+                                        </div>
+                                    </div>
+                                    <div className="cart_buttons">
+                                        <button type="button" className="btn btn-default">Clear</button>
+                                        <button type="button" className="btn btn-success">Add to Cart</button>
+                                    </div>
+                                </div>
+                                <div></div>
+                                <div className="single_post_quote text-center">
+                                    <div className="quote_image"><img src="./assets/images/quote.png" alt /></div>
+                                    <div className="quote_text">Quisque sagittis non ex eget vestibulum. Sed nec ultrices dui. Cras
+                                      et sagittis erat.
+                                            Maecenas pulvinar, turpis in dictum tincidunt
+                                             dolor nibh lacinia lacus.</div>
+                                    <div className="quote_name">Liam Neeson</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+        else {
+            result = Message.MSG_CART_EMPTY;
+        }
+        return result;
+    }
 }
 
 // Xác định lấy state nào nào store lưu trữ
 const mapStateToProps = (state) => {
     return {
-        Products: state.Products,
+        Carts: state.Carts,
         //state.Products, //Ở trong reducer index là gì thì nó là vậy
     }
 }
@@ -97,4 +117,4 @@ const mapDispatchToProps = (dispatch, props) => {
     }
 
 }
-export default connect(mapStateToProps, mapDispatchToProps)(ProductContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(CartContainer);

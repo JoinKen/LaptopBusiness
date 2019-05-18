@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import * as msg from '../../Constant/Message';
 class ProductCartItem extends Component {
     render() {
         return (
@@ -33,11 +34,19 @@ class ProductCartItem extends Component {
                         <div className="cart_item_title">Price</div>
                         <div className="cart_item_text">${this.showSubTotal(this.props.info.product.salePrice, this.props.info.quantity)}</div>
                     </div>
-                    <button className="btn badge-danger"> X </button>
+                    <button className="btn badge-danger"
+                        onClick={() => this.onDeleteProductInCart(this.props.info.product)}> X
+                    </button>
                 </div>
             </li>
         );
     }
+
+    onDeleteProductInCart(product) {
+        var { onDeleteProductInCart } = this.props;
+        onDeleteProductInCart(product);
+    }
+
     showSubTotal = (price, quantity) => {
         return price * quantity;
     }

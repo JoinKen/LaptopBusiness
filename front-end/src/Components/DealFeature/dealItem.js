@@ -4,11 +4,6 @@ import * as actions from '../../Actions/feature_product_action';
 
 class DealItem extends Component {
 
-    constructor(props) {
-        super(props);
-
-    }
-
     salePriceAction = (product) => {
         if (product.value) {
             return product.salePrice - product.salePrice * product.value;
@@ -69,7 +64,8 @@ class DealItem extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        DealProducts: state.DealProducts
+        DealProducts: state.DealProducts,
+        Messages: state.Messages
     }
 }
 const mapDispatchToProps = (dispatch, props) => {
@@ -77,6 +73,9 @@ const mapDispatchToProps = (dispatch, props) => {
         onAddToCart: (product) => {
             dispatch(actions.actAddToCart(product, 1));
             console.log("actAddToCart called!!!!");
+        },
+        actAChangeMessage: () => {
+            dispatch(actions.actAChangeMessage());
         }
     }
 

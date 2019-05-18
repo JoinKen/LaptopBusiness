@@ -5,31 +5,6 @@ import * as actions from '../Actions/feature_product_action';
 import * as Message from '../Constant/Message';
 import ProductCartItem from '../Components/Cart/ProductCartItem';
 class CartContainer extends Component {
-    /* nơi đầu tiên dc khởi chạy component
-    khởi tạo các giá trị của state và đọc những giá trị props dc truyền vào
-    */
-    constructor(props) {
-        super(props);
-        this.state = {
-            Products: {},
-            haveData: false,
-        }
-    }
-    // Hàm này gọi khi component dc khởi tạo thông qua constructor
-    componentWillMount() {
-        this.props.getAllProductAct();
-    }
-
-    /* Hàm này dc gọi khi component nhận dc một props mới*/
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.Products.code === "ok") {
-            this.setState({
-                Products: nextProps.Products.data[0],
-                haveData: true
-            });
-        }
-        console.log(nextProps);
-    }
 
 
     render() {
@@ -43,11 +18,14 @@ class CartContainer extends Component {
     }
 
     showCartItem = (Carts) => {
+        var { onDeleteProductInCart, actAChangeMessage } = this.props
         var result = Carts.map((item, index) => {
             return <ProductCartItem
                 key={index}
                 info={item}
                 index={index}
+                onDeleteProductInCart={onDeleteProductInCart}
+                actAChangeMessage={actAChangeMessage}
             />
         });
         return result;
@@ -118,14 +96,18 @@ class CartContainer extends Component {
 const mapStateToProps = (state) => {
     return {
         Carts: state.Carts,
+        Messages: state.Messages
         //state.Products, //Ở trong reducer index là gì thì nó là vậy
     }
 }
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
-        getAllProductAct: () => {
-            dispatch(actions.getAllProductAct());
+        onDeleteProductInCart: (product) => {
+            dispatch(actions.actDeleteProductInCart(product));
+        },
+        onChangeMessage: (message) => {
+            dispatch(actions.actAChangeMessage(message));
         }
     }
 }

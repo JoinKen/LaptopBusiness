@@ -36,13 +36,13 @@ class Product extends Component {
 
     showFeaturedItemSlider = () => {
         let result;
-        var { onAddToCart } = this.props;
+        var { onAddToCart, onChangeMessage } = this.props;
         if (this.state.haveData === true) {
             result = this.state.Products.map((item, index) => {
                 return (<FeaturedItemSlider
                     key={index} info={item}
                     onAddToCart={onAddToCart}
-                    onChangeMessage={onAddToCart}
+                    onChangeMessage={onChangeMessage}
                 />)
             });
         }
@@ -53,12 +53,12 @@ class Product extends Component {
     }
     showOnSaleItemSlider = () => {
         let result;
-        var { onAddToCart } = this.props;
+        var { onAddToCart, onChangeMessage } = this.props;
         if (this.state.haveData === true) {
             result = this.state.OnSaleProducts.map((item, index) => {
                 return (<FeaturedItemSlider key={index} info={item}
                     onAddToCart={onAddToCart}
-                    onChangeMessage={onAddToCart} />)
+                    onChangeMessage={onChangeMessage} />)
             });
         }
         else {
@@ -68,12 +68,12 @@ class Product extends Component {
     }
     showBestRatedItemSlider = () => {
         let result;
-        var { onAddToCart } = this.props;
+        var { onAddToCart, onChangeMessage } = this.props;
         if (this.state.haveData === true) {
             result = this.state.BestRatedProducts.map((item, index) => {
                 return (<FeaturedItemSlider key={index} info={item}
                     onAddToCart={onAddToCart}
-                    onChangeMessage={onAddToCart} />)
+                    onChangeMessage={onChangeMessage} />)
             });
         }
         else {
@@ -141,16 +141,17 @@ const mapStateToProps = state => {
     return {
         Products: state.Products,
         Carts: state.Carts,
-        messages: state.messages
+        Messages: state.Messages
         //state.Products, //Ở trong reducer index là gì thì nó là vậy
     }
 }
 
-const mapDispatchToProps = (dispatch, props) => {
-    return {
-        getAllProductAct: () => {
-            dispatch(actions.getAllProductAct());
-        }
+const mapDispatchToProps = (dispatch, props) => ({
+    getAllProductAct: () => {
+        dispatch(actions.getAllProductAct());
+    },
+    onChangeMessage: (Messages) => {
+        dispatch(actions.actAChangeMessage(Messages))
     }
-}
+});
 export default connect(mapStateToProps, mapDispatchToProps)(Product);

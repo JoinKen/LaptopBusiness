@@ -66,6 +66,7 @@ class listDeals extends Component {
 const mapStateToProps = (state) => {
   return {
     DealProducts: state.DealProducts,
+    Messages: state.Messages
   }
 }
 
@@ -73,6 +74,10 @@ const mapDispatchToProps = (dispatch, props) => {
   return {
     getAllDealProductAct: (statementType) => {
       dispatch(actions.getAllDealProductAct(statementType));
+    },
+
+    actAChangeMessage: () => {
+      dispatch(actions.actAChangeMessage());
     }
   }
 }

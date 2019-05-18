@@ -1640,13 +1640,19 @@ select option {
 }
 
 .featured_slider_item {
-	height: 263px;
+	height: 300px !important;
 	width: 25%;
+}
+
+.fixNamePeoduct {
+	padding: 1px;
+	font-size: 16px;
 }
 
 .product_item {
 	position: relative;
 	left: -10px;
+	margin-top: 10px;
 	width: calc(100% + 20px);
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
@@ -1686,9 +1692,9 @@ select option {
 }
 
 .product_price {
-	font-size: 16px;
+	font-size: 15px;
 	font-weight: 500;
-	margin-top: 25px;
+	margin-top: 20px;
 }
 
 .product_price.discount {
@@ -1696,9 +1702,9 @@ select option {
 }
 
 .product_price span {
-	font-size: 12px;
-	font-weight: 400;
-	color: rgba(0, 0, 0, 0.6);
+	font-size: 15px;
+	font-weight: 500;
+	color: rgb(0, 0, 0);
 	margin-left: 10px;
 }
 

@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import Deal from './DealFeature/listDeals';
-import Feature from './DealFeature/feaure';
+import ProductsContainer from '../Containers/ProductsContainer';
 
 class Deals_feature extends Component {
 
@@ -12,7 +12,7 @@ class Deals_feature extends Component {
                     <div className="row">
                         <div className="col d-flex flex-lg-row flex-column align-items-center justify-content-start">
                             <Deal />
-                            <Feature />
+                            <ProductsContainer />
                         </div>
                     </div>
                 </div>

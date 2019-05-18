@@ -23,4 +23,5 @@ const DealProducts = (state = ArrayFeatureProduct, action) => {
             return state;
     }
 }
+
 export default DealProducts;

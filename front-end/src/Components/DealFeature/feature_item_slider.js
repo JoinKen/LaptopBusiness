@@ -5,7 +5,7 @@ class FeatureItemSlider extends Component {
 
     salePriceAction = (product) => {
         if (product.value != null) {
-            return '$'+(product.salePrice - product.salePrice * product.value);
+            return '$' + (product.salePrice - product.salePrice * product.value);
         }
         else
             return null;
@@ -19,6 +19,19 @@ class FeatureItemSlider extends Component {
         }
     }
 
+    setRating = (product) => {
+        if (product.soRate === 1)
+            return <div class="rating_r rating_r_1 arrivals_single_rating"><i></i><i></i><i></i><i></i><i></i></div>
+        if (product.soRate === 2)
+            return <div class="rating_r rating_r_2 arrivals_single_rating"><i></i><i></i><i></i><i></i><i></i></div>
+        if (product.soRate === 3)
+            return <div class="rating_r rating_r_3 arrivals_single_rating"><i></i><i></i><i></i><i></i><i></i></div>
+        if (product.soRate === 4)
+            return <div class="rating_r rating_r_4 arrivals_single_rating"><i></i><i></i><i></i><i></i><i></i></div>
+        if (product.soRate === 5)
+            return <div class="rating_r rating_r_5 arrivals_single_rating"><i></i><i></i><i></i><i></i><i></i></div>
+    }
+
     render() {
         console.log(this.props.info.idProduct);
         return (
@@ -30,19 +43,14 @@ class FeatureItemSlider extends Component {
                     <div className="product_content">
                         <div className="product_price discount">{this.salePriceAction(this.props.info)}<span>${this.props.info.salePrice}</span></div>
                         <div className="product_name">
-                            <div><a href="product.html">{this.props.info.nameProduct}</a></div>
+                            <div className="fixNamePeoduct"><a href="product.html">{this.props.info.nameProduct}</a></div>
                         </div>
+                        {this.setRating(this.props.info)}
                         <div className="product_extras">
-                            <div className="product_color">
-                                <input type="radio" defaultChecked name="product_color"
-                                    style={{ background: '#b19c83' }} />
-                                <input type="radio" name="product_color" style={{ background: '#000000' }} />
-                                <input type="radio" name="product_color" style={{ background: '#999999' }} />
-                            </div>
                             <button className="product_cart_button">Add to Cart</button>
                         </div>
                     </div>
-                    <div className="product_fav"><i className="fas fa-heart" /></div>
+                    <div className="product_fav"><i className="fas fa-heart" id={this.props.info.idProduct} /></div>
                     <ul className="product_marks">
                         {this.setValueKhuyenMai(this.props.info)}
                         <li className="product_mark product_new">new</li>
@@ -55,7 +63,7 @@ class FeatureItemSlider extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        FeatureProducts: state.FeatureProducts
+        Products: state.Products
     }
 }
 export default connect(mapStateToProps, null)(FeatureItemSlider);

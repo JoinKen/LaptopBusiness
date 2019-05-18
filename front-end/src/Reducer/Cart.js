@@ -1,18 +1,19 @@
 
 import * as Types from '../Constant/ActionType';
 
-var ArrayFeatureProduct = [];
-const BestRatedProducts = (state = ArrayFeatureProduct, action) => {
+var data = JSON.parse(localStorage.getItem('CART'));
+var initialState = data ? data : [];
+const Cart = (state = initialState, action) => {
     let json;
     switch (action.type) {
-        case Types.BESTRATEDPRODUCT:
+        case Types.ADD_TOCART:
             json = {
                 code: 'ok',
                 data: action.data
             }
             state = json;
             return state;
-        case Types.BESTRATEDPRODUCT_ERR:
+        case Types.ADD_TOCART_ERR:
             json = {
                 code: 'err',
                 data: action.data
@@ -23,4 +24,5 @@ const BestRatedProducts = (state = ArrayFeatureProduct, action) => {
             return state;
     }
 }
-export default BestRatedProducts;
+
+export default Cart;

@@ -3,7 +3,8 @@ import Footer from './Components/footer';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import routes from '../src/router';
 import '../src/App.js';
-import Header from './Components/header';
+import Header from './Components/header'
+
 
 class App extends Component {
 
@@ -17,8 +18,6 @@ class App extends Component {
         </div>
 
       </Router>
-
-
     );
   }
   showContent = (routes) => {

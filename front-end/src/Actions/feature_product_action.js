@@ -15,6 +15,13 @@ export const actAChangeMessage = (msg) => {
     }
 }
 
+export const actDeleteProductInCart = (product) => {
+    return {
+        type: Types.DELETE_PRODUCT_INCART,
+        product
+    }
+}
+
 export const getError = (message) => {
     return {
         type: Types.PRODUCT_ERR,

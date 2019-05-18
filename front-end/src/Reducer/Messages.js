@@ -4,12 +4,12 @@ import * as Message from '../Constant/Message';
 
 
 var initialState = Message.MSG_WELCOME;
-const messages = (state = initialState, action) => {
+const Messages = (state = initialState, action) => {
     switch (action.type) {
         case Types.MESSAGE_CHANGE:
-            return state;
+            return action.msg;
         default:
             return state;
     }
 }
-export default messages;
+export default Messages;

@@ -2,12 +2,12 @@ import { combineReducers } from "redux";
 import DealProducts from './DealProducts';
 import Products from './Products';
 import Carts from './Cart';
-import messages from './Messages';
+import Messages from './Messages';
 
 const appReducers = combineReducers({
     DealProducts,
     Products,
     Carts,
-    messages,
+    Messages,
 });
 export default appReducers;

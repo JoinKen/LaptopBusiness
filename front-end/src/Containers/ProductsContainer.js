@@ -85,7 +85,7 @@ class ProductContainer extends Component {
 const mapStateToProps = (state) => {
     return {
         Products: state.Products,
-        messages: state.messages
+        Messages: state.Messages
         //state.Products, //Ở trong reducer index là gì thì nó là vậy
     }
 }
@@ -94,6 +94,9 @@ const mapDispatchToProps = (dispatch, props) => {
     return {
         getAllProductAct: () => {
             dispatch(actions.getAllProductAct());
+        },
+        actAChangeMessage: () => {
+            dispatch(actions.actAChangeMessage());
         }
     }
 

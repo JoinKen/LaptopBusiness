@@ -18,7 +18,7 @@ class CartContainer extends Component {
     }
 
     showCartItem = (Carts) => {
-        var { onDeleteProductInCart, actAChangeMessage } = this.props
+        var { onDeleteProductInCart, actAChangeMessage, onUpdateProductInCart } = this.props
         var result = Carts.map((item, index) => {
             return <ProductCartItem
                 key={index}
@@ -26,6 +26,7 @@ class CartContainer extends Component {
                 index={index}
                 onDeleteProductInCart={onDeleteProductInCart}
                 actAChangeMessage={actAChangeMessage}
+                onUpdateProductInCart={onUpdateProductInCart}
             />
         });
         return result;
@@ -66,18 +67,47 @@ class CartContainer extends Component {
                                         {this.showCartResult(Carts)}
                                     </div>
                                     <div className="cart_buttons">
-                                        <button type="button" className="btn btn-default">Clear</button>
-                                        <button type="button" className="btn btn-success">Add to Cart</button>
+                                        <button type="button" className="btn btn-success" data-toggle="modal" data-target="#myModal"> PAY NOW!</button>
                                     </div>
                                 </div>
-                                <div></div>
+                                <div className="addPost">
+                                    <div className="modal" id="myModal">
+                                        <div className="modal-dialog">
+                                            <div className="modal-content">
+                                                <div>
+                                                    <br></br></div>
+                                                <h5 className="modal-title"> SẮP XONG RỒI CHỈ CÒN MỘT BƯỚC NỮA THÔI </h5>
+                                                <div className="modal-body">
+                                                    <form action="#">
+                                                        <div class="text-left">
+                                                            <label for="email" className="font-weight-bold">Địa chỉ giao hàng</label>
+                                                            <input type="email" class="form-control" id="email" required />
+                                                        </div>
+                                                        <div class="text-left">
+                                                            <label for="pwd" className="font-weight-bold" required>Số điện thoại</label>
+                                                            <input type="text" class="form-control" id="pwd" />
+                                                        </div>
+                                                        <div>
+                                                            <br></br></div>
+                                                        <button type="submit" class="btn btn-success">ĐẶT HÀNG XONG!</button>
+                                                    </form>
+                                                </div>
+                                                <div className="modal-footer">
+                                                    <button type="button" className="btn btn-danger pull-left" data-dismiss="modal">
+                                                        Close
+                                        </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+
+                                </div>
                                 <div className="single_post_quote text-center">
                                     <div className="quote_image"><img src="./assets/images/quote.png" alt /></div>
-                                    <div className="quote_text">Quisque sagittis non ex eget vestibulum. Sed nec ultrices dui. Cras
-                                      et sagittis erat.
-                                            Maecenas pulvinar, turpis in dictum tincidunt
-                                             dolor nibh lacinia lacus.</div>
-                                    <div className="quote_name">Liam Neeson</div>
+                                    <div className="quote_text"><h2>Chúc quý khác có đầu tuần nhiều điều may mắn và một ngày tốt lành</h2></div>
+                                    <div className="quote_name">IT1006</div>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +116,18 @@ class CartContainer extends Component {
             );
         }
         else {
-            result = Message.MSG_CART_EMPTY;
+            result = (
+                <div>
+                    <div>
+                        <br></br></div>  <div>
+                        <br></br></div>
+                    <h2>{Message.MSG_CART_EMPTY}</h2>
+
+                    <div>
+                        <a className="btn btn-danger " href="http://localhost:3000">Đến trang chủ!!!</a>
+                    </div>
+                </div>
+            );
         }
         return result;
     }
@@ -106,8 +147,11 @@ const mapDispatchToProps = (dispatch, props) => {
         onDeleteProductInCart: (product) => {
             dispatch(actions.actDeleteProductInCart(product));
         },
-        onChangeMessage: (message) => {
+        actAChangeMessage: (message) => {
             dispatch(actions.actAChangeMessage(message));
+        },
+        onUpdateProductInCart: (product, quantity) => {
+            dispatch(actions.actUpdateProducInCart(product, quantity));
         }
     }
 }

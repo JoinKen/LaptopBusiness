@@ -20,7 +20,8 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "jquery-bridget": "^2.0.0",
-    "babel-polyfill": "*"
+    "babel-polyfill": "*",
+    "query-string": "*"
   },
   "scripts": {
     "start": "react-scripts start",

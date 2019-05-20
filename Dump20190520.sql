@@ -31,7 +31,7 @@ CREATE TABLE `account` (
   `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `role` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`idAccount`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +40,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
+INSERT INTO `account` VALUES (1,'0983982933',NULL,NULL,'User');
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -97,7 +98,7 @@ CREATE TABLE `configureproduct` (
   PRIMARY KEY (`idConfigureProduct`),
   KEY `FK_ConfigureProduct_Product` (`idProduct`),
   CONSTRAINT `FK_ConfigureProduct_Product` FOREIGN KEY (`idProduct`) REFERENCES `product` (`idproduct`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -106,6 +107,7 @@ CREATE TABLE `configureproduct` (
 
 LOCK TABLES `configureproduct` WRITE;
 /*!40000 ALTER TABLE `configureproduct` DISABLE KEYS */;
+INSERT INTO `configureproduct` VALUES (1,'Macbook','Intel Core i5 Coffee Lake, 1.60 GHz','8 GB, DDR3, 2133 MHz','SSD: 128 GB','13.3 inch, Retina (2560 x 1600)','Dài 304.1 mm - Rộng 212.1 mm - Dày 4.1 đến 15.6 mm','Mac OS','2 x Thunderbolt 3 (USB-C)',NULL,NULL,'Khoảng 10 tiếng','Bluetooth 4.2, Wi-Fi 802.11 a/b/g/n/ac','Hỗ trợ eGPU rời, Bảo mật vân tay','Macbook Air 2018 sở hữu vẻ ngoài sang trọng và mỏng nhẹ. Cấu hình đáp ứng đầy đủ',1);
 /*!40000 ALTER TABLE `configureproduct` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,7 +127,7 @@ CREATE TABLE `cusomter` (
   PRIMARY KEY (`idCustomer`),
   KEY `FK_Cusomter_Account` (`idAccount`),
   CONSTRAINT `FK_Cusomter_Account` FOREIGN KEY (`idAccount`) REFERENCES `account` (`idaccount`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -134,6 +136,7 @@ CREATE TABLE `cusomter` (
 
 LOCK TABLES `cusomter` WRITE;
 /*!40000 ALTER TABLE `cusomter` DISABLE KEYS */;
+INSERT INTO `cusomter` VALUES (1,'0983982933','itk160454@gmail.com','1',NULL);
 /*!40000 ALTER TABLE `cusomter` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,7 +156,7 @@ CREATE TABLE `employees` (
   PRIMARY KEY (`idEmployee`),
   KEY `FK_Employees_Account` (`idAccount`),
   CONSTRAINT `FK_Employees_Account` FOREIGN KEY (`idAccount`) REFERENCES `account` (`idaccount`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,6 +165,7 @@ CREATE TABLE `employees` (
 
 LOCK TABLES `employees` WRITE;
 /*!40000 ALTER TABLE `employees` DISABLE KEYS */;
+INSERT INTO `employees` VALUES (1,'HỆ THỐNG',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -237,7 +241,7 @@ CREATE TABLE `image` (
   PRIMARY KEY (`idImage`),
   KEY `FK_Image_Product` (`idProduct`),
   CONSTRAINT `FK_Image_Product` FOREIGN KEY (`idProduct`) REFERENCES `product` (`idproduct`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -246,7 +250,7 @@ CREATE TABLE `image` (
 
 LOCK TABLES `image` WRITE;
 /*!40000 ALTER TABLE `image` DISABLE KEYS */;
-INSERT INTO `image` VALUES (1,'/upload/best_1.png',NULL,1),(2,'/upload/best_2.png',NULL,2),(3,'/upload/best_1.png',NULL,3),(4,'/upload/best_1.png',NULL,4),(5,'/upload/best_5.png',NULL,5),(6,'/upload/best_6.png',NULL,6),(7,'/upload/best_7.png',NULL,7);
+INSERT INTO `image` VALUES (1,'/upload/mac_1.png',NULL,1),(2,'/upload/lenevo_1.png',NULL,2),(3,'/upload/asus_1.png',NULL,3),(4,'/upload/acer_1.png',NULL,4),(5,'/upload/asus_2.png',NULL,5),(6,'/upload/dell_1.png',NULL,6),(7,'/upload/lenevo_2.png',NULL,7),(8,'/upload/mac_2.png',NULL,1),(9,'/upload/mac_3.png',NULL,1),(10,'/upload/mac_4.png',NULL,1),(11,'/upload/mac_5.png',NULL,1),(12,'/upload/mac_6.png',NULL,1),(13,'/upload/hp_1.png',NULL,8),(14,'/upload/asus_3.png',NULL,9),(15,'/upload/asus_4.png',NULL,10),(16,'/upload/dell_2.png',NULL,11),(17,'/upload/hp_2.png',NULL,12),(18,'/upload/dell_2.png',NULL,13),(19,'/upload/dell_2.png',NULL,14);
 /*!40000 ALTER TABLE `image` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -302,7 +306,7 @@ CREATE TABLE `order` (
   CONSTRAINT `FK_Order_Account` FOREIGN KEY (`idEmployees`) REFERENCES `account` (`idaccount`),
   CONSTRAINT `FK_Order_Cusomter` FOREIGN KEY (`idCustomer`) REFERENCES `cusomter` (`idcustomer`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `FK_Order_Employees` FOREIGN KEY (`idEmployees`) REFERENCES `employees` (`idemployee`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -311,6 +315,7 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
+INSERT INTO `order` VALUES (3,1,1,1,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -389,7 +394,7 @@ CREATE TABLE `product` (
   `dateAdded` date DEFAULT NULL,
   `describe` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`idProduct`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -398,7 +403,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (1,'123',123,123,123,'2019-09-09','123'),(2,'456',465,456,456,'2018-08-08','465'),(3,'789',789,789,789,'2017-07-07','789'),(4,'11',111,111,111,'2011-01-01','111'),(5,'2222',222,222,222,'2222-02-02','2222'),(6,'12312',3123,12312,3123,'2221-01-01','123123'),(7,'123',1231,23123,123,'2255-08-08','12321');
+INSERT INTO `product` VALUES (1,'Apple Macbook Air 2018',1300,1500,99,'2019-05-05','Macbook Air 2018 sở hữu vẻ ngoài sang trọng và mỏng nhẹ. Cấu hình đáp ứng đầy đủ nhu cầu sử dụng văn phòng, giải trí cùng thời lượng pin đủ để bạn sử dụng suốt cả ngày dài.'),(2,'Lenovo Ideapad 530S',800,1000,12,'2018-08-08','Laptop Lenovo Ideapad 530S (81EU00P5VN) mang trong mình một thiết kế mỏng nhẹ rất thuận tiện khi di chuyển, cùng với đó là một cấu hình khá mạnh, giúp chạy mượt mà các ứng dụng văn phòng cũng như đáp ứng tốt nhu cầu đồ họa cơ bản. Chiếc laptop Lenovo này sẽ là một sự lựa chọn đáng để cân nhắc dành cho nhân viên văn phòng hoặc học sinh, sinh viên trong phân khúc.'),(3,'Asus VivoBook X507UF',600,800,100,'2017-07-07','Laptop Asus X507UF i5 8250U (EJ121T) được thiết kế hiện đại, thanh lịch. Trọng lượng nhẹ phù hợp cho sinh viên - nhân viên văn phòng khi phải mang vác máy tính hằng ngày đến lớp, công ty. Bên cạnh đó máy được trang bị cấu hình khoẻ để chạy tốt ứng dụng đồ hoạ, chơi game nặng ở mức cơ bản.'),(4,'Acer Aspire E5 476',450,500,56,'2011-01-01','Acer Aspire E5 476 i3 8130U là phiên bản máy tính xách tay với cấu hình cao, sử dụng vi xử lý mạnh mẽ trong phân khúc nhưng vẫn rất tiết kiệm pin do sử dụng kiến trúc chip mới từ Intel. Laptop Acer với mức giá thành hợp lý cùng cấu hình cực kì mạnh mẽ, Aspire E5 476 có thể đáp ứng tốt cho người dùng phổ thông cần một chiếc máy tính văn phòng, giải trí.'),(5,'Asus VivoBook S510UN',600,700,500,'2018-08-08','Laptop VivoBook S510UN (BQ276T) - Một tân binh mới vừa được Asus tung ra thị trường với vẻ ngoài cứng cáp, mạnh mẽ. Mẫu máy laptop Asus core i5 xử lý tốt các ứng dụng đồ hoạ, và cho trải nghiệm khá tốt các game nặng, rất phù hợp với nhân viên văn phòng vừa có thể làm việc và chơi game trên một chiếc máy tính xách tay.'),(6,'Dell Vostro 3578',800,900,34,'2017-07-07','Tuyệt vời'),(7,' Lenovo Ideapad 330S',500,600,123,'2017-07-07','Mặt trời'),(8,'HP Pavilion 15',400,6200,5,'2019-05-05','Tuyệt vời'),(9,'Asus X407UA',4,1200,5,'2019-05-05','Tuyệt vời'),(10,'Asus X507MA',4,2000,5,'2019-05-05','Tuyệt vời'),(11,'Dell Inspiron 3576',4,1000,5,'2019-05-05','Tuyệt vời'),(12,'HP 15 da0054TU',4,8000,5,'2019-05-05','Tuyệt vời'),(13,'it1006',4,600,5,'2018-08-08','Tuyệt vời'),(14,'it1006',4,4000,4,'2017-07-07','OK');
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -419,7 +424,7 @@ CREATE TABLE `promotion` (
   PRIMARY KEY (`idPromotion`),
   KEY `FK_Promotion_Product` (`idProduct`),
   CONSTRAINT `FK_Promotion_Product` FOREIGN KEY (`idProduct`) REFERENCES `product` (`idproduct`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -428,7 +433,7 @@ CREATE TABLE `promotion` (
 
 LOCK TABLES `promotion` WRITE;
 /*!40000 ALTER TABLE `promotion` DISABLE KEYS */;
-INSERT INTO `promotion` VALUES (1,1,'DEAL','50%',0.5,NULL),(2,2,'ONSALE','25%',0.25,NULL),(3,3,'ONSALE','25%',0.25,NULL),(4,5,'DEAL','25%',0.4,NULL),(5,4,'ONSALE','25%',0.4,NULL);
+INSERT INTO `promotion` VALUES (1,1,'DEAL','10%',0.1,NULL),(2,2,'ONSALE','25%',0.25,NULL),(3,3,'ONSALE','25%',0.25,NULL),(4,5,'DEAL','25%',0.4,NULL),(5,4,'ONSALE','25%',0.4,NULL),(6,6,'ONSALE','5%',0.5,NULL),(7,7,'ONSALE','99%',0.99,NULL),(8,8,'ONSALE','NO1',0.98,NULL);
 /*!40000 ALTER TABLE `promotion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -451,7 +456,7 @@ CREATE TABLE `rate` (
   KEY `FK_Rate_Product` (`idProduct`),
   CONSTRAINT `FK_Rate_Cusomter` FOREIGN KEY (`idCustomer`) REFERENCES `cusomter` (`idcustomer`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `FK_Rate_Product` FOREIGN KEY (`idProduct`) REFERENCES `product` (`idproduct`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -460,7 +465,7 @@ CREATE TABLE `rate` (
 
 LOCK TABLES `rate` WRITE;
 /*!40000 ALTER TABLE `rate` DISABLE KEYS */;
-INSERT INTO `rate` VALUES (1,5,'Tuyeetj voiwf','OK',1,NULL),(2,4,'OK ngon','OK',1,NULL),(3,3,'Normal','Normal',2,NULL),(4,5,'ádasdasd','ádasd',4,NULL);
+INSERT INTO `rate` VALUES (1,5,'Tuyeetj voiwf','OK',1,NULL),(2,4,'OK ngon','OK',1,NULL),(3,3,'Normal','Normal',2,NULL),(4,5,'ádasdasd','ádasd',4,NULL),(5,4,NULL,NULL,1,NULL),(6,5,NULL,NULL,2,NULL),(7,2,NULL,NULL,3,NULL),(8,1,NULL,NULL,4,NULL),(9,5,NULL,NULL,5,NULL),(10,4,NULL,NULL,6,NULL),(11,2,NULL,NULL,4,NULL),(12,5,NULL,NULL,5,NULL),(13,4,NULL,NULL,4,NULL),(14,2,NULL,NULL,1,NULL),(15,5,NULL,NULL,2,NULL),(16,2,NULL,NULL,3,NULL),(17,3,NULL,NULL,2,NULL),(18,5,NULL,NULL,5,NULL),(19,4,NULL,NULL,2,NULL),(20,4,NULL,NULL,1,NULL),(21,1,NULL,NULL,4,NULL),(22,2,NULL,NULL,2,NULL),(23,5,NULL,NULL,5,NULL),(24,4,NULL,NULL,3,NULL),(25,5,NULL,NULL,1,NULL),(26,5,NULL,NULL,4,NULL),(27,2,NULL,NULL,6,NULL),(28,4,NULL,NULL,7,NULL),(29,2,NULL,NULL,9,NULL),(30,5,NULL,NULL,9,NULL),(31,5,NULL,NULL,9,NULL),(32,2,NULL,NULL,5,NULL),(33,2,NULL,NULL,2,NULL),(34,2,NULL,NULL,1,NULL),(35,1,NULL,NULL,3,NULL),(36,4,NULL,NULL,1,NULL),(37,4,NULL,NULL,2,NULL),(38,4,NULL,NULL,1,NULL),(39,5,NULL,NULL,2,NULL),(40,5,NULL,NULL,3,NULL),(41,3,NULL,NULL,1,NULL),(42,2,NULL,NULL,2,NULL),(43,5,NULL,NULL,3,NULL),(44,4,NULL,NULL,5,NULL),(45,5,NULL,NULL,2,NULL),(46,1,NULL,NULL,4,NULL),(47,4,NULL,NULL,1,NULL),(48,2,NULL,NULL,2,NULL),(49,3,NULL,NULL,3,NULL),(50,1,NULL,NULL,2,NULL),(51,1,NULL,NULL,1,NULL),(52,2,NULL,NULL,4,NULL),(53,5,NULL,NULL,2,NULL),(54,3,NULL,NULL,5,NULL),(55,2,NULL,NULL,3,NULL),(56,1,NULL,NULL,1,NULL),(57,4,NULL,NULL,2,NULL),(58,1,NULL,NULL,5,NULL),(59,2,NULL,NULL,2,NULL),(60,3,NULL,NULL,1,NULL),(61,5,NULL,NULL,2,NULL),(62,2,NULL,NULL,4,NULL),(63,1,NULL,NULL,1,NULL),(64,5,NULL,NULL,2,NULL);
 /*!40000 ALTER TABLE `rate` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -501,4 +506,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-17 16:20:24
+-- Dump completed on 2019-05-20 11:35:15

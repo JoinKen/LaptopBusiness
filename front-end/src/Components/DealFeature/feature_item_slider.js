@@ -23,25 +23,27 @@ class FeatureItemSlider extends Component {
     }
 
     setRating = (product) => {
-        if (product.soRate === 1)
-            return <div class="rating_r rating_r_1 arrivals_single_rating"><i></i><i></i><i></i><i></i><i></i></div>
-        if (product.soRate === 2)
-            return <div class="rating_r rating_r_2 arrivals_single_rating"><i></i><i></i><i></i><i></i><i></i></div>
-        if (product.soRate === 3)
-            return <div class="rating_r rating_r_3 arrivals_single_rating"><i></i><i></i><i></i><i></i><i></i></div>
-        if (product.soRate === 4)
-            return <div class="rating_r rating_r_4 arrivals_single_rating"><i></i><i></i><i></i><i></i><i></i></div>
-        if (product.soRate === 5)
-            return <div class="rating_r rating_r_5 arrivals_single_rating"><i></i><i></i><i></i><i></i><i></i></div>
+        if (product.numberOfStar === 1)
+            return <div class="rating_r rating_r_1 arrivals_single_rating"><i></i><i></i><i></i><i></i><i></i>({product.soRate})</div>
+        if (product.numberOfStar === 2)
+            return <div class="rating_r rating_r_2 arrivals_single_rating"><i></i><i></i><i></i><i></i><i></i>({product.soRate})</div>
+        if (product.numberOfStar === 3)
+            return <div class="rating_r rating_r_3 arrivals_single_rating"><i></i><i></i><i></i><i></i><i></i>({product.soRate})</div>
+        if (product.numberOfStar === 4)
+            return <div class="rating_r rating_r_4 arrivals_single_rating"><i></i><i></i><i></i><i></i><i></i>({product.soRate})</div>
+        if (product.numberOfStar === 5)
+            return <div class="rating_r rating_r_5 arrivals_single_rating"><i></i><i></i><i></i><i></i><i></i>({product.soRate})</div>
     }
 
     render() {
         return (
             <div className="featured_slider_item">
                 <div className="border_active" />
+
                 <div className="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                    <div className="product_image d-flex flex-column align-items-center justify-content-center">
-                        <img src={this.props.info.link} alt="asa" width="140px;" /></div>
+                    <a href={"http://localhost:3000/productDetail?idProduct=" + this.props.info.idProduct}>
+                        <div className="product_image d-flex flex-column align-items-center justify-content-center">
+                            <img src={this.props.info.link} alt="asa" width="140px;" /></div> </a>
                     <div className="product_content">
                         <div className="product_price discount">{this.salePriceAction(this.props.info)}<span>${this.props.info.salePrice}</span></div>
                         <div className="product_name">

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import FeaturedItemSlider from './feature_item_slider';
 import { connect } from 'react-redux';
 import * as actions from '../../Actions/feature_product_action';
-import PropTypes from 'prop-types';
 class Product extends Component {
     /* nơi đầu tiên dc khởi chạy component
     khởi tạo các giá trị của state và đọc những giá trị props dc truyền vào
@@ -31,7 +30,6 @@ class Product extends Component {
                 haveData: true
             });
         }
-        console.log(nextProps);
     }
 
     showFeaturedItemSlider = () => {

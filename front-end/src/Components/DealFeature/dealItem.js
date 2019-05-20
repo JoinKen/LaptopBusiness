@@ -35,7 +35,7 @@ class DealItem extends Component {
                             <div className="deals_timer_subtitle">Offer ends in:</div>
                         </div>
                         <div className="deals_timer_content ml-auto">
-                            <div className="deals_timer_box clearfix" data-target-time="May 20, 2019">
+                            <div className="deals_timer_box clearfix" data-target-time="May 21, 2019">
                                 <div className="deals_timer_unit">
                                     <div id="deals_timer2_hr" className="deals_timer_hr" />
                                     <span>hours</span>

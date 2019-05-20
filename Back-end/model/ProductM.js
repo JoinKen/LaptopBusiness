@@ -67,10 +67,7 @@ Products.createProduct = function (newproduct, result) {
 };
 
 Products.getProductById = function (idProduct, result) {
-  mysql.query("SELECT * FROM laptopbusiness.Product WHERE idProduct = ? ;", [idProduct], function (
-    err,
-    res
-  ) {
+  mysql.query("call laptopbusiness.sp_loadProcuctDetail(?); ", [idProduct], function (err, res) {
     if (err) {
       result(err, null);
     } else {
@@ -78,6 +75,15 @@ Products.getProductById = function (idProduct, result) {
     }
   });
 };
+// Products.getProductDetail = function (result) {
+//   mysql.query("call laptopbusiness.sp_loadProcuctDetail(); ", function (err, res) {
+//     if (err) {
+//       result(err);
+//     } else {
+//       result(res[0]);
+//     }
+//   });
+// };
 Products.updateById = function (id, product, result) {
   mysql.query(
     "UPDATE laptopbusiness.product SET ? WHERE (idProduct = ?);",

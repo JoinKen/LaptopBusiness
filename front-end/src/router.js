@@ -1,7 +1,7 @@
 import React from "react";
 import Home from '../src/Pages/Home';
 import Cart from '../src/Pages/Cart';
-import ProductDetail from './Pages/ProductDetail';
+import ProductDetail from './Pages/ProductDetails';
 
 const router = [
     {
@@ -15,8 +15,8 @@ const router = [
         main: () => <Cart />
     },
     {
-        path: "/Product",
-        exact: true,
+        path: "/productDetail",
+        exact: false,
         main: () => <ProductDetail />
     }
 ]

@@ -20,6 +20,16 @@ exports.list_all_Products = function (req, res) {
   });
 };
 
+/**LẤy tất cả chi tieets sản phẩm */
+// exports.list_all_Product_Detail = function (req, res) {
+//   Products.getProductDetail(function (err, Products) {
+//     if (err) res.send(err);
+//     res.send(Products);
+
+//   });
+// };
+
+
 /**Lấy comment của sản phẩm */
 exports.get_Comment = function (req, res) {
   Products.Comentproduct(function (err, Products) {
@@ -41,7 +51,6 @@ exports.read_a_product = function (req, res) {
   Products.getProductById(req.query.idProduct, function (err, product) {
     if (err) res.send(err);
     res.json(product);
-    console.log(res);
   });
 };
 
